@@ -12,51 +12,43 @@ source:
     - winboost.patch  # [win]
 
 build:
-    number: 0
+    number: 1
     # CGAL etc do not support earlier than vc14
     skip: True  # [win and py<35]
-    features:
-        - vc9  # [win and py27]
-        - vc10  # [win and py34]
-        - vc14  # [win and (py35 or py36)]
 
 requirements:
   build:
     - cmake
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
     # npgpython bindings link to numpy
-    - numpy 1.8.*  # [not (win and (py35 or py36))]
-    - numpy 1.9.*  # [win and py35]
-    - numpy 1.11.*  # [win and py36]
-    - toolchain
+    - numpy        # [not (win and (py35 or py36))]
+    - numpy        # [win and py35]
+    - numpy         # [win and py36]
     # need full boost because of Python bindings
-    - boost 1.66.*
-    - hdf5 1.10.1
-    - xerces-c 3.2.0
-    - gsl 2.2.*
-    - libgdal 2.2.*
-    - geos 3.6.2
+    - boost
+    - hdf5
+    - xerces-c
+    - gsl
+    - libgdal
+    - geos
     - cgal
     - lastools
-    - vc   9  # [win and py27]
-    - vc  10  # [win and py34]
-    - vc  14  # [win and (py35 or py36)]
   run:
     - python
-    - numpy >=1.8  # [not (win and (py35 or py36))]
-    - numpy >=1.9  # [win and py35]
-    - numpy >=1.11  # [win and py36]
-    - boost 1.66.*
-    - hdf5 1.10.1
-    - xerces-c 3.2.0
-    - gsl 2.2.*
-    - libgdal 2.2.*
-    - geos 3.6.2
+    - {{ pin_compatible('numpy') }}   # [not (win and (py35 or py36))]
+    - {{ pin_compatible('numpy') }}   # [win and py35]
+    - {{ pin_compatible('numpy') }}   # [win and py36]
+    - boost
+    - hdf5
+    - xerces-c
+    - gsl
+    - libgdal
+    - geos
     - cgal
     - lastools
-    - vc   9  # [win and py27]
-    - vc  10  # [win and py34]
-    - vc  14  # [win and (py35 or py36)]
 
 test:
   commands:
@@ -64,7 +56,7 @@ test:
     - if not exist %LIBRARY_LIB%\\libspd.lib exit 1  # [win]
     - test -f $PREFIX/lib/libspd.so                  # [linux]
     - test -f $PREFIX/lib/libspd.dylib               # [osx]
-    - spdtranslate -h 
+    - spdtranslate -h
   imports:
     - spdpy
     - spdpy2
