@@ -10,6 +10,7 @@ source:
   patches:
     - python_numeric.cpp.patch
     - winboost.patch  # [win]
+    - pyboost.patch
 
 build:
     number: 1
