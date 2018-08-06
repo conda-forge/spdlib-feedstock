@@ -24,9 +24,7 @@ requirements:
   host:
     - python
     # npgpython bindings link to numpy
-    - numpy        # [not (win and (py35 or py36))]
-    - numpy        # [win and py35]
-    - numpy         # [win and py36]
+    - numpy
     # need full boost because of Python bindings
     - boost
     - hdf5
@@ -38,9 +36,7 @@ requirements:
     - lastools
   run:
     - python
-    - {{ pin_compatible('numpy') }}   # [not (win and (py35 or py36))]
-    - {{ pin_compatible('numpy') }}   # [win and py35]
-    - {{ pin_compatible('numpy') }}   # [win and py36]
+    - {{ pin_compatible('numpy') }}
     - boost
     - hdf5
     - xerces-c

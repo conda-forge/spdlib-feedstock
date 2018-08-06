@@ -39,6 +39,7 @@ cmake -D CMAKE_INSTALL_PREFIX=$STDLIB_DIR \
     -D SPDLIB_IO_INCLUDE_DIR=$PREFIX/include \
     -D SPDLIB_IO_LIB_PATH=$PREFIX/lib \
     -D CMAKE_PREFIX_PATH=$PREFIX \
+    -D BOOST_ROOT=$PREFIX \
     .
 make
 make install

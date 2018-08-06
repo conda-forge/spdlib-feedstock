@@ -30,7 +30,7 @@ nmake install
 if errorlevel 1 exit 1
 
 :: now Python bindings
-:: Delete the static build of gdal so FindGDAl.cmake picks up gdal_i.lib
+:: Delete the static build of gdal so FindGDAL.cmake picks up gdal_i.lib
 del %LIBRARY_LIB%\gdal.lib
 cd python
 cmake -G "NMake Makefiles" -D CMAKE_INSTALL_PREFIX=%STDLIB_DIR% ^
@@ -40,6 +40,7 @@ cmake -G "NMake Makefiles" -D CMAKE_INSTALL_PREFIX=%STDLIB_DIR% ^
     -D SPDLIB_IO_INCLUDE_DIR=%LIBRARY_INC% ^
     -D SPDLIB_IO_LIB_PATH=%LIBRARY_LIB% ^
     -D CMAKE_PREFIX_PATH=%LIBRARY_PREFIX% ^
+    -D BOOST_ROOT=%LIBRARY_PREFIX% ^
     .
 if errorlevel 1 exit 1
 
