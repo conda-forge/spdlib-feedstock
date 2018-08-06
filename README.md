@@ -14,14 +14,16 @@ Summary: The Sorted Pulse Data Library (SPDLib) provides a format for storing an
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/spdlib-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/spdlib-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/spdlib-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/spdlib-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/spdlib-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/spdlib-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/spdlib-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/spdlib-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/spdlib-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/spdlib-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/spdlib-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/spdlib-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/spdlib/badges/version.svg)](https://anaconda.org/conda-forge/spdlib)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/spdlib/badges/downloads.svg)](https://anaconda.org/conda-forge/spdlib)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-spdlib-green.svg)](https://anaconda.org/conda-forge/spdlib) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spdlib.svg)](https://anaconda.org/conda-forge/spdlib) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spdlib.svg)](https://anaconda.org/conda-forge/spdlib) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spdlib.svg)](https://anaconda.org/conda-forge/spdlib) |
 
 Installing spdlib
 =================
