@@ -11,6 +11,7 @@ source:
     - python_numeric.cpp.patch
     - winboost.patch  # [win]
     - pyboost.patch
+    - nocpp98.patch
 
 build:
     number: 2
