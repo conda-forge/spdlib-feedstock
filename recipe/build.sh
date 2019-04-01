@@ -1,5 +1,14 @@
 #!/bin/bash
 
+if [[ $(uname) == Linux ]]; then
+    # By putting this last it takes precedence over
+    # the default c++17 flag which causes
+    # "error: ISO C++1z does not allow dynamic exception specifications"
+    # I would have thought doing this would cause ABI breakage
+    # with everything else, but apparently not
+    export CXXFLAGS="$CXXFLAGS -std=c++11"
+fi
+
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
     -D HDF5_INCLUDE_DIR=$PREFIX/include \
     -D HDF5_LIB_PATH=$PREFIX/lib \
