@@ -1,4 +1,4 @@
-boost:
+boost_cpp:
 - 1.68.0
 c_compiler:
 - gcc
@@ -22,10 +22,8 @@ hdf5:
 - 1.10.4
 libgdal:
 - '2.4'
-numpy:
-- '1.9'
 pin_run_as_build:
-  boost:
+  boost-cpp:
     max_pin: x.x.x
   geos:
     max_pin: x.x.x
@@ -33,12 +31,7 @@ pin_run_as_build:
     max_pin: x.x
   libgdal:
     max_pin: x.x
-  python:
-    min_pin: x.x
-    max_pin: x.x
   xerces-c:
     max_pin: x.x.x
-python:
-- '3.7'
 xerces_c:
 - 3.2.2
