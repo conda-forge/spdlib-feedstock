@@ -24,11 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python
-    # npgpython bindings link to numpy
-    - numpy
-    # need full boost because of Python bindings
-    - boost
+    - boost-cpp
     - hdf5
     - xerces-c
     - gsl
@@ -37,9 +33,7 @@ requirements:
     - cgal
     - lastools
   run:
-    - python
-    - {{ pin_compatible('numpy') }}
-    - boost
+    - boost-cpp
     - hdf5
     - xerces-c
     - gsl
@@ -55,9 +49,6 @@ test:
     - test -f $PREFIX/lib/libspd.so                  # [linux]
     - test -f $PREFIX/lib/libspd.dylib               # [osx]
     - spdtranslate -h
-  imports:
-    - spdpy
-    - spdpy2
 
 about:
   home: http://www.spdlib.org
