@@ -1,9 +1,12 @@
 #!/bin/bash
 
-if [ `uname` == Darwin ]; then
-    export DYLD_FALLBACK_LIBRARY_PATH=$PREFIX/lib
-else
-    export LD_LIBRARY_PATH=$PREFIX/lib    
+if [[ $(uname) == Linux ]]; then
+    # By putting this last it takes precedence over
+    # the default c++17 flag which causes
+    # "error: ISO C++1z does not allow dynamic exception specifications"
+    # I would have thought doing this would cause ABI breakage
+    # with everything else, but apparently not
+    export CXXFLAGS="$CXXFLAGS -std=c++11"
 fi
 
 cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
@@ -30,28 +33,3 @@ cmake -D CMAKE_INSTALL_PREFIX=$PREFIX \
 
 make install -j$CPU_COUNT
 
-# now Python bindings
-cd python
-cmake -D CMAKE_INSTALL_PREFIX=$STDLIB_DIR \
-    -D CMAKE_BUILD_TYPE=Release \
-    -D HDF5_INCLUDE_DIR=$PREFIX/include \
-    -D HDF5_LIB_PATH=$PREFIX/lib \
-    -D SPDLIB_IO_INCLUDE_DIR=$PREFIX/include \
-    -D SPDLIB_IO_LIB_PATH=$PREFIX/lib \
-    -D CMAKE_PREFIX_PATH=$PREFIX \
-    .
-make
-make install
-
-# now the 'ng' python bindings
-cd ../ngpython
-$PYTHON setup.py build --gdalinclude=$PREFIX/include \
-    --boostinclude=$PREFIX/include \
-    --gslinclude=$PREFIX/include \
-    --cgalinclude=$PREFIX/include \
-    --lasinclude=$PREFIX/include \
-    --hdf5include=$PREFIX/include \
-    --gdallib=$PREFIX/lib
-
-$PYTHON setup.py install
-cd ..

@@ -11,14 +11,12 @@ source:
     - python_numeric.cpp.patch
     - winboost.patch  # [win]
     - pyboost.patch
+    - nocpp98.patch
 
 build:
-    number: 1
+    number: 2
     # CGAL etc do not support earlier than vc14
-    #skip: True  # [win and py<35]
-    # skipping Windows until cmake boost linking bug fixed (post 1.67)
-    # see https://svn.boost.org/trac10/ticket/13527
-    skip: True  # [win]
+    skip: True  # [win and py<35]
 
 requirements:
   build:
@@ -26,11 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
-    - python
-    # npgpython bindings link to numpy
-    - numpy
-    # need full boost because of Python bindings
-    - boost
+    - boost-cpp
     - hdf5
     - xerces-c
     - gsl
@@ -39,9 +33,7 @@ requirements:
     - cgal
     - lastools
   run:
-    - python
-    - {{ pin_compatible('numpy') }}
-    - boost
+    - boost-cpp
     - hdf5
     - xerces-c
     - gsl
@@ -57,9 +49,6 @@ test:
     - test -f $PREFIX/lib/libspd.so                  # [linux]
     - test -f $PREFIX/lib/libspd.dylib               # [osx]
     - spdtranslate -h
-  imports:
-    - spdpy
-    - spdpy2
 
 about:
   home: http://www.spdlib.org
