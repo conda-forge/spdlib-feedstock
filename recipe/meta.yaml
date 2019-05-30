@@ -14,7 +14,7 @@ source:
     - nocpp98.patch
 
 build:
-    number: 2
+    number: 3
     # CGAL etc do not support earlier than vc14
     skip: True  # [win and py<35]
 
@@ -30,7 +30,7 @@ requirements:
     - gsl
     - libgdal
     - geos
-    - cgal
+    - cgal-cpp
     - lastools
   run:
     - boost-cpp
@@ -39,7 +39,7 @@ requirements:
     - gsl
     - libgdal
     - geos
-    - cgal
+    - cgal-cpp
     - lastools
 
 test:
