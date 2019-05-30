@@ -30,7 +30,7 @@ requirements:
     - gsl
     - libgdal
     - geos
-    - cgal
+    - cgal-cpp
     - lastools
   run:
     - boost-cpp
@@ -39,7 +39,7 @@ requirements:
     - gsl
     - libgdal
     - geos
-    - cgal
+    - cgal-cpp
     - lastools
 
 test:
