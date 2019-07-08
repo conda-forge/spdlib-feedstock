@@ -14,7 +14,7 @@ source:
     - nocpp98.patch
 
 build:
-    number: 5
+    number: 6
     # CGAL etc do not support earlier than vc14
     skip: True  # [win and py<35]
 
