@@ -21,7 +21,7 @@ gsl:
 hdf5:
 - 1.10.5
 libgdal:
-- '2.4'
+- '3.0'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
