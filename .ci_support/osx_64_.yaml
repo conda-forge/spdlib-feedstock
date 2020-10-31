@@ -1,11 +1,11 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
 boost_cpp:
-- 1.70.0
+- 1.72.0
 c_compiler:
 - clang
 c_compiler_version:
-- '9'
+- '10'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '9'
+- '10'
 geos:
 - 3.8.1
 gsl:
@@ -24,14 +24,15 @@ libgdal:
 - '3.0'
 macos_machine:
 - x86_64-apple-darwin13.4.0
-macos_min_version:
-- '10.9'
 pin_run_as_build:
   boost-cpp:
     max_pin: x.x.x
   libgdal:
     max_pin: x.x
-  xerces-c:
-    max_pin: x.x.x
+target_platform:
+- osx-64
 xerces_c:
-- 3.2.2
+- '3.2'
+zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
