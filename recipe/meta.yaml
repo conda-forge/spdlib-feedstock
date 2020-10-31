@@ -52,7 +52,8 @@ test:
 
 about:
   home: http://www.spdlib.org
-  license: GPLv3
+  license: GPL-3.0-only
+  license_file: LICENSE.txt
   summary: The Sorted Pulse Data Library (SPDLib) provides a format for storing and tools for processing discrete return and full waveform LiDAR data from airborne and terrestrial sensors.
 
 extra:
