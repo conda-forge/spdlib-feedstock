@@ -1,12 +1,12 @@
-{% set version = "3.3.0" %}
+{% set version = "3_3" %}
 
 package:
   name: spdlib
-  version: {{ version }}
+  version: {{ version|replace("_", ".") }}
 
 source:
-  url: https://bitbucket.org/petebunting/spdlib/downloads/spdlib-{{ version }}.tar.gz
-  sha256: ded350c5eedb7b3b92a84a1e2d6dfa4c6f9ecb09bd83f0fcfb7fe17c1595b9c7
+  url: https://github.com/remotesensinginfo/spdlib/archive/Version_{{ version }}.tar.gz
+  sha256: 5cfed56180033641f8bcbe8a18bf687be59483af7fa8bb355ea50652b5411c4e
   patches:
     - python_numeric.cpp.patch
     - winboost.patch  # [win]
@@ -21,6 +21,7 @@ build:
 requirements:
   build:
     - cmake
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
